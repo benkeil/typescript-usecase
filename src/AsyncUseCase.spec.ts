@@ -1,5 +1,7 @@
-import { AsyncOutputPort, AsyncOutputPortFunction, AsyncUseCase } from './AsyncUseCase';
 import Result from '@benkeil/typescript-result/dist/Result';
+import AsyncUseCase from './AsyncUseCase';
+import AsyncOutputPortFunction from './AsyncOutputPortFunction';
+import AsyncOutputPort from './AsyncOutputPort';
 
 class NumberToStringUseCase implements AsyncUseCase<number, string> {
   async execute<R>(inputPort: () => number, outputPort: (result: string) => Promise<R> | R): Promise<R> {

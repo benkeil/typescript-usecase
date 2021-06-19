@@ -1,4 +1,4 @@
-export interface AsyncUseCase<I, O> {
+export default interface AsyncUseCase<I, O> {
   execute: I extends void
     ? O extends void
       ? <R>() => Promise<R>
@@ -6,10 +6,4 @@ export interface AsyncUseCase<I, O> {
     : O extends void
     ? <R>(inputPort: () => I) => Promise<R>
     : <R>(inputPort: () => I, outputPort: (result: O) => R | Promise<R>) => Promise<R>;
-}
-
-export type AsyncOutputPortFunction<I, O> = I extends void ? () => O : (result: I) => O | Promise<O>;
-
-export interface AsyncOutputPort<I, O> {
-  present: AsyncOutputPortFunction<I, O>;
 }
