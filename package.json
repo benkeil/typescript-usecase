@@ -1,6 +1,6 @@
 {
   "name": "@benkeil/typescript-usecase",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
