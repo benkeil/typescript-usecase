@@ -25,5 +25,6 @@
   "files": [
     "dist"
   ],
-  "types": "dist/*"
+  "main": "dist/**",
+  "types": "dist/**"
 }
