@@ -1,4 +1,4 @@
-import { SyncOutputPortFunction, SyncUseCase } from '../src/SyncUseCase';
+import { SyncOutputPortFunction, SyncUseCase } from './SyncUseCase';
 
 class NumberToStringUseCase implements SyncUseCase<number, string> {
   execute<R>(inputPort: () => number, outputPort: (result: string) => R): R {

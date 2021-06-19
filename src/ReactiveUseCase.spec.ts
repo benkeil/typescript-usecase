@@ -1,6 +1,6 @@
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ReactiveOutputPortFunction, ReactiveUseCase } from '../src/ReactiveUseCase';
+import { ReactiveOutputPortFunction, ReactiveUseCase } from './ReactiveUseCase';
 
 class NumberToStringUseCase implements ReactiveUseCase<number, string> {
   execute<R>(inputPort: () => number, outputPort: (result: Observable<string>) => R): R {
