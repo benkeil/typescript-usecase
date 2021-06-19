@@ -8,7 +8,8 @@
     "clean": "rm -rf dist",
     "prebuild": "yarn run clean",
     "build": "tsc",
-    "prepublish": "yarn run build"
+    "prepublishOnly": "yarn run build",
+    "postpublish": "git push --tags"
   },
   "peerDependencies": {
     "rxjs": "^7.1.0"
