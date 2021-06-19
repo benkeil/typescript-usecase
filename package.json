@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
     "clean": "rm -rf dist",
-    "prebuild": "yarn run clean",
+    "test": "jest",
+    "prebuild": "yarn run clean && yarn run test",
     "build": "tsc",
     "prepublishOnly": "yarn run build",
     "postpublish": "git push --tags"
@@ -15,6 +15,7 @@
     "rxjs": "^7.1.0"
   },
   "devDependencies": {
+    "@benkeil/typescript-result": "0.0.3",
     "@types/jest": "^26.0.23",
     "jest": "^27.0.4",
     "prettier": "^2.3.1",

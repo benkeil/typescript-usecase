@@ -1,4 +1,5 @@
 import { AsyncOutputPort, AsyncOutputPortFunction, AsyncUseCase } from '../src/AsyncUseCase';
+import Result from '@benkeil/typescript-result/dist/Result';
 
 class NumberToStringUseCase implements AsyncUseCase<number, string> {
   async execute<R>(inputPort: () => number, outputPort: AsyncOutputPortFunction<string, R>): Promise<R> {
@@ -14,6 +15,7 @@ class Service {
 
 class IsEvenNumberUseCase implements AsyncUseCase<number, Boolean> {
   constructor(private service: Service) {}
+
   async execute<R>(inputPort: () => number, outputPort: AsyncOutputPortFunction<Boolean, R>): Promise<R> {
     return outputPort(await this.service.isEven(inputPort()));
   }
@@ -22,6 +24,15 @@ class IsEvenNumberUseCase implements AsyncUseCase<number, Boolean> {
 class StringPresenter implements AsyncOutputPort<Boolean, string> {
   present(result: Boolean): Promise<string> | string {
     return result ? 'JA' : 'NEIN';
+  }
+}
+
+class ResultUseCase implements AsyncUseCase<number, Result<Promise<Boolean>>> {
+  async execute<R>(
+    inputPort: () => number,
+    outputPort: AsyncOutputPortFunction<Result<Promise<Boolean>>, R>,
+  ): Promise<R> {
+    return outputPort(Result.from(async () => inputPort() % 2 === 0));
   }
 }
 
@@ -37,6 +48,7 @@ describe('AsyncUseCase', () => {
       expect(output).toBe(3);
     })();
   });
+
   test('AsyncOutputPortFunction', () => {
     (async () => {
       const service = new Service();
@@ -49,6 +61,7 @@ describe('AsyncUseCase', () => {
       expect(output).toBe('NEIN');
     })();
   });
+
   test('AsyncOutputPort', () => {
     (async () => {
       const service = new Service();
@@ -58,5 +71,15 @@ describe('AsyncUseCase', () => {
       const output = await isEvenNumberUseCase.execute(controller, stringPresenter.present);
       expect(output).toBe('JA');
     })();
+  });
+
+  test('ResultUseCase', async () => {
+    const useCase = new ResultUseCase();
+    const controller = () => 4;
+    const resultPresenter: AsyncOutputPortFunction<Result<Promise<Boolean>>, string> = async (result) => {
+      return (await result.get()) ? 'JA' : 'NEIN';
+    };
+    const result = await useCase.execute(controller, resultPresenter);
+    expect(result).toBe('JA');
   });
 });
