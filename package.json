@@ -1,7 +1,10 @@
 {
   "name": "@benkeil/typescript-usecase",
+  "description": "",
+  "keywords": [],
   "version": "0.0.11",
   "license": "MIT",
+  "author": "Ben Keil <benedikt.keil@trustedshops.de>",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,7 +23,7 @@
     "rxjs": "^7.1.0"
   },
   "devDependencies": {
-    "@benkeil/typescript-result": "0.0.3",
+    "@benkeil/typescript-result": "0.0.4",
     "@types/jest": "^26.0.23",
     "jest": "^27.0.4",
     "prettier": "^2.3.1",

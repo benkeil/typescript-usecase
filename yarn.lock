@@ -302,10 +302,12 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@benkeil/typescript-result@0.0.3":
-  version "0.0.3"
-  resolved "https://npm.pkg.github.com/download/@benkeil/typescript-result/0.0.3/ff48529df025c9201a3c42077580bb8deb84f26ccd11de8478cc4f9faf006014#410a51829b23d2eacb8fa929b7fcc79930f0ba76"
-  integrity sha512-zb6PkN3rkbnZinrsYPBKwpK451Tz6qr4vIs0glc8lcK6iYhmVSgVix6me0vbpZ3ycdzTDW+J/z+7UycjlorecQ==
+"@benkeil/typescript-result@0.0.4":
+  version "0.0.4"
+  resolved "https://npm.pkg.github.com/download/@benkeil/typescript-result/0.0.4/173b31407de3f0ff1655c9d9193e3014987975bafe361180d6f3be368f1d4fca#c60f6952c62b2b432e7fa05ededa160172a70b2e"
+  integrity sha512-zaiQcBefmZscgdwr2iM61mY0WLMa4TNFa51plv/3O0yjP5BgehFlExNB01oTO9HwOslKYmhFV6gbNt38pap0xQ==
+  dependencies:
+    rxjs "^7.1.0"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
